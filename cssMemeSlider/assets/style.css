@@ -1,0 +1,121 @@
+body {
+  background-color: #25282a;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+.slider {
+  position: relative;
+  width: 600px;
+  height: 350px;
+  overflow: hidden;
+  background-color: #25282a;
+  margin: 20px;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 600%;
+}
+.slide {
+  width: 100%;
+  text-align: center;
+}
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-bottom: 15px;
+}
+.caption {
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  background-color: #25282a;
+  text-align: left;
+}
+input[type="radio"] {
+  display: none;
+}
+#slide1:checked ~ .slides {
+  transform: translateX(calc(0 * -100% / 6));
+}
+#slide2:checked ~ .slides {
+  transform: translateX(calc(1 * -100% / 6));
+}
+#slide3:checked ~ .slides {
+  transform: translateX(calc(2 * -100% / 6));
+}
+#slide4:checked ~ .slides {
+  transform: translateX(calc(3 * -100% / 6));
+}
+#slide5:checked ~ .slides {
+  transform: translateX(calc(4 * -100% / 6));
+}
+#slide6:checked ~ .slides {
+  transform: translateX(calc(5 * -100% / 6));
+}
+.controls {
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  bottom: 20px;
+}
+.controls label {
+  cursor: pointer;
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background-color: #71abfe;
+  border-radius: 50%;
+  border: 2px solid #71abfe;
+}
+.controls label::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.controls label:hover {
+  background-color: white;
+  border-color: white;
+}
+.controls label:active {
+  background-color: #bdbebf;
+  border-color: #bdbebf;
+}
+input[id="slide1"]:checked ~ .controls label[for="slide1"],
+input[id="slide2"]:checked ~ .controls label[for="slide2"],
+input[id="slide3"]:checked ~ .controls label[for="slide3"],
+input[id="slide4"]:checked ~ .controls label[for="slide4"],
+input[id="slide5"]:checked ~ .controls label[for="slide5"],
+input[id="slide6"]:checked ~ .controls label[for="slide6"] {
+  background-color: #25282a;
+}
+@media (max-width: 768px) {
+  .slider {
+    width: 100%;
+    height: auto;
+  }
+  .controls {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -200%);
+  }
+  .controls {
+    gap: 10px;
+  }
+  .slide img {
+    padding-bottom: 30px;
+  }
+}
